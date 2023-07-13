@@ -14,6 +14,10 @@ function Intro() {
                 <img src={introImg} style={{width: "100%", marginTop: "100px", marginBottom: "50px"}}/>
             </Wrapper>
 
+
+
+
+
         </div>
 
     );
