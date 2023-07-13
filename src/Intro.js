@@ -13,9 +13,6 @@ function Intro() {
                 <p className="stackTitle" style={{top: "370px", fontSize: "2rem"}}>독서와 무제한 친해지리</p>
                 <img src={introImg} style={{width: "100%", marginTop: "100px", marginBottom: "50px"}}/>
             </Wrapper>
-
-
-
         </div>
 
     );
