@@ -47,11 +47,13 @@ function SignUp() {
         console.log({
             nickname: data.get('nickname'),
         });
-        window.location.href = '/today';
-
+        let token;
         await axios.post('http://localhost:8080/member', {
             nickname: data.get('nickname'),
-            email: 'testtest@email.com',
+            email: email,
+        }).then((response) => {
+            console.log(response.data);
+            token = response.data.get();
         });
     }
     return (
