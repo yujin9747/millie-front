@@ -35,6 +35,7 @@ const defaultTheme = createTheme();
 function SignUp() {
 
     const params = new URLSearchParams(window.location.search);
+    const [typedNickname, setTypedNickname] = useState("");
 
     let email = params.get("email");
     let provider = params.get("provider");
@@ -44,14 +45,20 @@ function SignUp() {
 
     const onSignUp = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log(Object.fromEntries(data));
+        // const data = new FormData(event.currentTarget[0]);
+        // console.log(Object.fromEntries(data));
         console.log({
-            nickname: data.get('nickname'),
+            // nickname: data.get('nickname'),
+            typedNickname: typedNickname,
         });
-        window.location.href = `/today/${email}/${data.get('nickname')}`;
+        window.location.href = `/today/${email}/${typedNickname}`;
 
     }
+
+    const onChange = (event) => {
+        setTypedNickname(event.target.value);
+    }
+
     return (
         <ThemeProvider theme={defaultTheme}>
             <Grid container component="main" sx={{ height: '100vh' }}>
@@ -96,6 +103,8 @@ function SignUp() {
                                 name="nickname"
                                 autoComplete="nickname"
                                 autoFocus
+                                value={typedNickname}
+                                onChange={onChange}
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary" />}
