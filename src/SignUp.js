@@ -86,7 +86,7 @@ function SignUp() {
                         <Typography component="h1" variant="h5">
                             독서와 무제한 친해지리
                         </Typography>
-                        <Box component="form" onSubmit={onSignUp} noValidate sx={{ mt: 1 }}>
+                        <form onSubmit={onSignUp} noValidate sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
                                 required
@@ -123,7 +123,7 @@ function SignUp() {
                                 </Grid>
                             </Grid>
                             <Copyright sx={{ mt: 5 }} />
-                        </Box>
+                        </form>
                     </Box>
                 </Grid>
             </Grid>
