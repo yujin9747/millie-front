@@ -49,7 +49,7 @@ function SignUp() {
             nickname: data.get('nickname'),
         });
         window.location.href = "/today";
-        return <Today />;
+        return <Today email={email} nickname={data.get('nickname')}/>;
     }
     return (
         <ThemeProvider theme={defaultTheme}>
