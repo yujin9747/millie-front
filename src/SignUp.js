@@ -44,7 +44,7 @@ function SignUp() {
 
     const onSignUp = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.target);
+        const data = new FormData(event.currentTarget);
         console.log({
             nickname: data.get('nickname'),
         });
@@ -85,7 +85,7 @@ function SignUp() {
                         <Typography component="h1" variant="h5">
                             독서와 무제한 친해지리
                         </Typography>
-                        <Box component="form" onSumit={onSignUp} noValidate sx={{ mt: 1 }}>
+                        <Box component="form" onSubmit={onSignUp} noValidate sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
                                 required
