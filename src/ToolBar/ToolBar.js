@@ -14,7 +14,7 @@ function ToolBar() {
 
     function onClick() {
         console.log("onClick");
-        window.location.href = "/login";
+        window.location.href = "/signUp";
         return <SignUp />;
     }
     return <Toolbar>

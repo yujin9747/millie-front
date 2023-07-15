@@ -9,8 +9,6 @@ L
 src/ToolBar/RappedToolBar.js,1/0/101db3c7f9dcb09d474535123453b4385d6a8464
 >
 src/Wrapper.js,3/8/3896a2dfee6ddcbfb608b9a785ad468076fd3fff
-F
-src/ToolBar/ToolBar.js,3/a/3ae718f7f07c92c392e791a46724d3755b9acc73
 M
 src/ToolBar/FlattenToolBar.js,1/c/1c312a5ba4f59e539748d0e2c20313b593158d3d
 <
