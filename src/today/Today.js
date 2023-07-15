@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RappedToolBar from "../ToolBar/RappedToolBar";
-import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 
 function Today() {
@@ -27,11 +26,6 @@ function Today() {
         <h1>nickname: {nickname}, email: {email}</h1>,
         <p>{text}</p>
     );
-}
-
-Today.propTypes = {
-    email: PropTypes.string.isRequired,
-    nickname: PropTypes.string.isRequired,
 }
 
 export default Today;

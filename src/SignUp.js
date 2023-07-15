@@ -48,7 +48,7 @@ function SignUp() {
         console.log({
             typedNickname: typedNickname,
         });
-        window.location.href = `/today/${email}/${typedNickname}`;
+        window.location.href = `/today?email=${email}&nickname=${typedNickname}`;
 
     }
 
