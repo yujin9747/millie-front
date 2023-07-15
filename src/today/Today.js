@@ -1,30 +1,54 @@
 import * as React from 'react';
 import RappedToolBar from "../ToolBar/RappedToolBar";
 import {useEffect, useState} from "react";
+import axios from "axios";
 
 function Today() {
-    let params;
-    let email;
-    let nickname;
-    let text;
-    useEffect(() => {
-        params = new URLSearchParams(window.location.search);
+    let params = new URLSearchParams(window.location.search);
+    let email = params.get("email");
+    let nickname = params.get("nickname");
+    const [text, setText] = useState('');
 
-        email = params.get("email");
-        nickname = params.get("nickname");
-        // await axios.post("http://localhost:8080/api/user", {
-        //     email: email,
-        //     nickname: nickname,
-        // }).then((response) => {
-        //     console.log(response);
-        // }
-        text = "회원 가입이 이미 되어 있는 유저입니다."
-    },
-    []);
+    useEffect(() => {
+        const checkUserRegistration = async (options) => {
+            if (email) {
+                try {
+                    const response = await axios.get(`http://localhost:8080/member`,
+                        {
+                            params: { email },
+                            withCredentials: true,
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                        });
+
+                    console.log("response: " + response.data);
+                    if (response.data === null) {
+                        console.log("회원 가입이 되어 있지 않은 유저입니다.");
+                        setText("회원 가입이 되어 있지 않은 유저입니다.");
+                    } else {
+                        console.log("회원 가입이 되어 있는 유저입니다.");
+                        setText("회원 가입이 되어 있는 유저입니다.");
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            } else {
+                // email이 없는 경우
+                window.location.href = "/";
+            }
+        };
+
+        checkUserRegistration().then(r => console.log("checkUserRegistration()"));
+    }, []);
+
     return (
-        <RappedToolBar />,
-        <h1>nickname: {nickname}, email: {email}</h1>,
-        <p>{text}</p>
+        <div>
+            <RappedToolBar />
+            <h1>nickname: {nickname}, email: {email}</h1>
+            <p>{text}</p>
+        </div>
+
     );
 }
 
