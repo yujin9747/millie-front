@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useState} from "react";
 
 // login 화면 이미지 : url(https://d3udu241ivsax2.cloudfront.net/v3/images/login/promotion_intro_bg.ac5237a5bed49b864cccee5224a464e4.jpg) no-repeat 50%/cover
 function Copyright(props) {
@@ -28,15 +29,17 @@ function Copyright(props) {
 }
 
 const defaultTheme = createTheme();
-function SignIn() {
-    const handleSubmit = (event) => {
+function SignUp() {
+
+    const onSignUp = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
+        const data = new FormData(event.currentTarget[0]);
         console.log({
-            email: data.get('email'),
-            password: data.get('password'),
+            nickname: data.get('nickname'),
+            // password: data.get('password'),
         });
-    };
+        window.location.href = '/today';
+    }
     return (
         <ThemeProvider theme={defaultTheme}>
             <Grid container component="main" sx={{ height: '100vh' }}>
@@ -71,26 +74,16 @@ function SignIn() {
                         <Typography component="h1" variant="h5">
                             독서와 무제한 친해지리
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                        <Box component="form" noValidate sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
+                                id="nickname"
+                                label="Nickname"
+                                name="nickname"
+                                autoComplete="nickname"
                                 autoFocus
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary" />}
@@ -101,8 +94,9 @@ function SignIn() {
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
+                                onClick={onSignUp}
                             >
-                                Sign In
+                                Sign Up
                             </Button>
                             <Grid container>
                                 <Grid item xs>
@@ -125,4 +119,4 @@ function SignIn() {
     );
 }
 
-export default SignIn;
+export default SignUp;

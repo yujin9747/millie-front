@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 import Intro from "./Intro";
 import Today from "./today/Today";
 import * as React from "react";
@@ -11,8 +11,8 @@ export default function Router() {
                 <Route exact path="/today">
                     <Today />
                 </Route>
-                <Route exact path="/login">
-                    <SignIn />
+                <Route exact path="/signUp">
+                    <SignUp />
                 </Route>
                 <Route exact path="/">
                     <Intro />
