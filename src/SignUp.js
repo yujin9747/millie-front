@@ -56,6 +56,7 @@ function SignUp() {
     }
 
     const onChange = (event) => {
+        console.log("current typedNickname: " + event.target.value);
         setTypedNickname(event.target.value);
     }
 
