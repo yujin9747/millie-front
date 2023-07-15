@@ -14,7 +14,7 @@ function RappedToolBar() {
                 }
             }>
                 <Wrapper left="20rem" right="20rem">
-                    <ToolBar />
+                    <ToolBar loginText="Logout"/>
                 </Wrapper>
             </AppBar>
         </Box>

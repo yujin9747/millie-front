@@ -13,7 +13,7 @@ function FlattenToolBar() {
                     boxShadow: "none",
                 }
             }>
-                <ToolBar />
+                <ToolBar loginText="Login"/>
             </AppBar>
         </Box>
     );
