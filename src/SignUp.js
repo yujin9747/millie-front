@@ -51,6 +51,8 @@ function SignUp() {
         await axios.post('http://localhost:8080/member', {
             nickname: data.get('nickname'),
             email: email,
+        },{
+            withCredentials: true
         }).then((response) => {
             console.log(response.data);
             token = response.data.get();
