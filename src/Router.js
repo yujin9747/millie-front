@@ -8,7 +8,7 @@ export default function Router() {
     return <>
         <BrowserRouter>
             <Switch>
-                <Route exact path="/today">
+                <Route exact path="/today/:email/:nickname">
                     <Today />
                 </Route>
                 <Route exact path="/signUp">

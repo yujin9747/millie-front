@@ -42,15 +42,15 @@ function SignUp() {
     console.log("params.get('email') >>> ", email);
     console.log("params.get('provider') >>> ", provider);
 
-    const onSignUp = async (event) => {
+    const onSignUp = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget[0]);
+        const data = new FormData(event.currentTarget);
         console.log(Object.fromEntries(data));
         console.log({
             nickname: data.get('nickname'),
         });
-        window.location.href = "/today";
-        return <Today email={email} nickname={data.get('nickname')}/>;
+        window.location.href = `/today/${email}/${data.get('nickname')}`;
+
     }
     return (
         <ThemeProvider theme={defaultTheme}>
