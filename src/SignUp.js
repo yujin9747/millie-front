@@ -45,6 +45,7 @@ function SignUp() {
     const onSignUp = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget[0]);
+        console.log(Object.fromEntries(data));
         console.log({
             nickname: data.get('nickname'),
         });
