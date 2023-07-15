@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 
 import {useState} from "react";
+import Today from "./today/Today";
 
 // login 화면 이미지 : url(https://d3udu241ivsax2.cloudfront.net/v3/images/login/promotion_intro_bg.ac5237a5bed49b864cccee5224a464e4.jpg) no-repeat 50%/cover
 function Copyright(props) {
@@ -47,16 +48,8 @@ function SignUp() {
         console.log({
             nickname: data.get('nickname'),
         });
-        let token;
-        await axios.post('http://localhost:8080/member', {
-            nickname: data.get('nickname'),
-            email: email,
-        },{
-            withCredentials: true
-        }).then((response) => {
-            console.log(response.data);
-            token = response.data.get();
-        });
+        window.location.href = "/today";
+        return <Today />;
     }
     return (
         <ThemeProvider theme={defaultTheme}>
