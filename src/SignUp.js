@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+
 import {useState} from "react";
 
 // login 화면 이미지 : url(https://d3udu241ivsax2.cloudfront.net/v3/images/login/promotion_intro_bg.ac5237a5bed49b864cccee5224a464e4.jpg) no-repeat 50%/cover
@@ -31,14 +33,26 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 function SignUp() {
 
-    const onSignUp = (event) => {
+    const params = new URLSearchParams(window.location.search);
+
+    let email = params.get("email");
+    let provider = params.get("provider");
+
+    console.log("params.get('email') >>> ", email);
+    console.log("params.get('provider') >>> ", provider);
+
+    const onSignUp = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget[0]);
         console.log({
             nickname: data.get('nickname'),
-            // password: data.get('password'),
         });
         window.location.href = '/today';
+
+        await axios.post('http://localhost:8080/member', {
+            nickname: data.get('nickname'),
+            email: 'testtest@email.com',
+        });
     }
     return (
         <ThemeProvider theme={defaultTheme}>

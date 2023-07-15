@@ -17,8 +17,7 @@ function ToolBar({ loginText }) {
     function onClick() {
         console.log("onClick: " + loginText);
         if(loginText === "Login") {
-            window.location.href = "/signUp";
-            return <SignUp />;
+            window.location.href = "http://localhost:8080/oauth2/authorization/google";
         }
         else {
             window.location.href = "/";
