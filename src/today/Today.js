@@ -19,7 +19,6 @@ function Today() {
                             withCredentials: true,
                             headers: {
                                 'Content-Type': 'application/json',
-                                'Origin': 'http://inflearn-aws-s3.s3-website-us-east-1.amazonaws.com',
                             },
                         });
 
