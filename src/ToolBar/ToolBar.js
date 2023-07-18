@@ -1,12 +1,9 @@
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
 import style from "./ToolBarStyle.module.css";
-import { useNavigate } from "react-router-dom";
-import SignUp from "../SignUp";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Today from "../today/Today";
